@@ -35,7 +35,7 @@ $_SESSION["gear_page"]="https://swgoh.gg".$_GET["get_gear_page"];
 				Character's gear page: 
 			</td>
 			<td>
-				<input type="text" name="character_page" value="<?php echo $_SESSION["character_page"];?>" size="20">
+				<input type="text" name="character_page" id="focus" value="<?php echo $_SESSION["character_page"];?>" size="20">
 			</td>
 		</tr>
 		<tr>
@@ -81,8 +81,9 @@ $html = htmlspecialchars($html);
 
 $darab=0;
 
-
-echo "<tr><td><b>Results:<br><br></b></td></tr>";
+if ($darab==0 && $_SESSION["gear_page"]<>"https://swgoh.gg") {
+	echo "<tr><td><b>Results:<br><br></b></td></tr>";
+}
 
 //print_r($html);
 $pieces = explode("Gear Level ", $html);
@@ -114,7 +115,7 @@ for ($i=1;$i<count($pieces);$i++) {
 	}
 }
 
-if ($darab==0 && $_SESSION["gear_page"]<>"") {
+if ($darab==0 && $_SESSION["gear_page"]<>"https://swgoh.gg") {
 	echo "<tr><td colspan='2'><b>Sorry, at this time your roster do not need the selected gear.</b></td></tr>";
 }
 
@@ -139,3 +140,7 @@ if (isset($_SESSION["character_page"])) {
 	
 </center>
 </body>
+
+<script>
+document.getElementById("focus").focus();
+</script>
