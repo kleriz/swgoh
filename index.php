@@ -30,16 +30,6 @@ $_SESSION["gear_page"]="https://swgoh.gg".$_GET["get_gear_page"];
 				<input type="text" name="ally_code" value="<?php echo $_SESSION["ally_code"];?>" size="20">
 			</td>
 		</tr>
-		<!--
-		<tr>
-			<td>
-				Swgoh.gg page of gear: 
-			</td>
-			<td>
-				<input type="text" name="gear_page" value="<?php echo $_SESSION["gear_page"];?>" size="20">
-			</td>
-		</tr>
-		-->
 		<tr>
 			<td>
 				Character's gear page: 
@@ -124,7 +114,7 @@ for ($i=1;$i<count($pieces);$i++) {
 	}
 }
 
-if ($darab==0) {
+if ($darab==0 && $_SESSION["gear_page"]<>"") {
 	echo "<tr><td colspan='2'><b>Sorry, at this time your roster do not need the selected gear.</b></td></tr>";
 }
 
